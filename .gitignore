@@ -60,3 +60,7 @@ snapshots
 
 .tanstack
 .nitro
+
+.bmad-core/
+.claude/
+docs/
