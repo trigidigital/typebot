@@ -14,25 +14,25 @@ import { type BotProps, reload } from "./index";
 export const initStandard = (props: BotProps & { id?: string }) => {
   const standardElement = props.id
     ? document.getElementById(props.id)
-    : document.querySelector("typebot-standard");
+    : document.querySelector("trigidigital-standard");
   if (!standardElement)
-    throw new Error("<typebot-standard> element not found.");
+    throw new Error("<trigidigital-standard> element not found.");
   Object.assign(standardElement, props);
 };
 
 export const initPopup = (props: PopupProps) => {
-  const popupElement = document.createElement("typebot-popup");
+  const popupElement = document.createElement("trigidigital-popup");
   Object.assign(popupElement, props);
   document.body.prepend(popupElement);
 };
 
 export const initBubble = (props: BubbleProps) => {
-  const bubbleElement = document.createElement("typebot-bubble");
+  const bubbleElement = document.createElement("trigidigital-bubble");
   Object.assign(bubbleElement, props);
   document.body.prepend(bubbleElement);
 };
 
-export const parseTypebot = () => ({
+export const parseTrigiDigital = () => ({
   initStandard,
   initPopup,
   initBubble,
@@ -48,15 +48,15 @@ export const parseTypebot = () => ({
   reload,
 });
 
-type Typebot = ReturnType<typeof parseTypebot>;
+type TrigiDigital = ReturnType<typeof parseTrigiDigital>;
 
 declare const window:
   | {
-      Typebot: Typebot;
+      TrigiDigital: TrigiDigital;
     }
   | undefined;
 
-export const injectTypebotInWindow = (typebot: Typebot) => {
+export const injectTrigiDigitalInWindow = (trigidigital: TrigiDigital) => {
   if (typeof window === "undefined") return;
-  window.Typebot = { ...typebot };
+  window.TrigiDigital = { ...trigidigital };
 };

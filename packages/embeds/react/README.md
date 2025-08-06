@@ -1,13 +1,13 @@
 ## Install
 
 ```bash
-npm install @typebot.io/react
+npm install @trigidigital/react
 ```
 
 ## Standard
 
 ```tsx
-import { Standard } from "@typebot.io/react";
+import { Standard } from "@trigidigital/react";
 
 const App = () => {
   return (
@@ -24,7 +24,7 @@ This code is creating a container with a 100% width (will match parent width) an
 ## Popup
 
 ```tsx
-import { Popup } from "@typebot.io/react";
+import { Popup } from "@trigidigital/react";
 
 const App = () => {
   return <Popup typebot="lead-generation-copy-3luzm6b" autoShowDelay={3000} />;
@@ -38,19 +38,19 @@ This code will automatically trigger the popup window after 3 seconds.
 You can use these commands:
 
 ```js
-import { open } from "@typebot.io/react";
+import { open } from "@trigidigital/react";
 
 open();
 ```
 
 ```js
-import { close } from "@typebot.io/react";
+import { close } from "@trigidigital/react";
 
 close();
 ```
 
 ```js
-import { toggle } from "@typebot.io/react";
+import { toggle } from "@trigidigital/react";
 
 toggle();
 ```
@@ -58,7 +58,7 @@ toggle();
 ## Bubble
 
 ```tsx
-import { Bubble } from "@typebot.io/react";
+import { Bubble } from "@trigidigital/react";
 
 const App = () => {
   return (
@@ -85,13 +85,13 @@ This code will show the bubble and let a preview message appear after 5 seconds.
 You can use these commands:
 
 ```js
-import { showPreviewMessage } from "@typebot.io/react";
+import { showPreviewMessage } from "@trigidigital/react";
 
 Typebot.showPreviewMessage();
 ```
 
 ```js
-import { hidePreviewMessage } from "@typebot.io/react";
+import { hidePreviewMessage } from "@trigidigital/react";
 
 Typebot.hidePreviewMessage();
 ```
@@ -101,19 +101,19 @@ Typebot.hidePreviewMessage();
 You can use these commands:
 
 ```js
-import { open } from "@typebot.io/react";
+import { open } from "@trigidigital/react";
 
 open();
 ```
 
 ```js
-import { close } from "@typebot.io/react";
+import { close } from "@trigidigital/react";
 
 close();
 ```
 
 ```js
-import { toggle } from "@typebot.io/react";
+import { toggle } from "@trigidigital/react";
 
 toggle();
 ```
@@ -123,7 +123,7 @@ toggle();
 You can prefill the bot variable values in your embed code by adding the `prefilledVariables` option. Here is an example:
 
 ```tsx
-import { Standard } from "@typebot.io/react";
+import { Standard } from "@trigidigital/react";
 
 const App = () => {
   return (

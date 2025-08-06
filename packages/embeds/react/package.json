@@ -1,7 +1,7 @@
 {
-  "name": "@typebot.io/react",
+  "name": "@trigidigital/react",
   "version": "0.8.15",
-  "description": "Convenient library to display typebots on your React app",
+  "description": "Convenient library to display trigidigital widgets on your React app",
   "license": "FSL-1.1-ALv2",
   "type": "module",
   "main": "./dist/index.js",
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "react": "18.3.1",
-    "@typebot.io/js": "workspace:*"
+    "@trigidigital/js": "workspace:*"
   },
   "devDependencies": {
     "@typebot.io/tsconfig": "workspace:*",

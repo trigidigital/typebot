@@ -1,10 +1,10 @@
 import { registerWebComponents } from "./register";
-import { injectTypebotInWindow, parseTypebot } from "./window";
+import { injectTrigiDigitalInWindow, parseTrigiDigital } from "./window";
 
 registerWebComponents();
 
-const typebot = parseTypebot();
+const trigidigital = parseTrigiDigital();
 
-injectTypebotInWindow(typebot);
+injectTrigiDigitalInWindow(trigidigital);
 
-export default typebot;
+export default trigidigital;

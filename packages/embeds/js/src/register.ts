@@ -10,7 +10,7 @@ import { Standard } from "./features/standard/components/Standard";
 
 export const registerWebComponents = () => {
   if (typeof window === "undefined") return;
-  customElement("typebot-standard", defaultBotProps, Standard);
-  customElement("typebot-bubble", defaultBubbleProps, Bubble);
-  customElement("typebot-popup", defaultPopupProps, Popup);
+  customElement("trigidigital-standard", defaultBotProps, Standard);
+  customElement("trigidigital-bubble", defaultBubbleProps, Bubble);
+  customElement("trigidigital-popup", defaultPopupProps, Popup);
 };

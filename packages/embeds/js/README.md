@@ -1,6 +1,6 @@
-# Typebot JS library
+# TrigiDigital JS library
 
-Frontend library to embed typebots from [Typebot](https://www.typebot.io/).
+Frontend library to embed TrigiDigital widgets.
 
 ## Installation
 
@@ -9,21 +9,21 @@ Frontend library to embed typebots from [Typebot](https://www.typebot.io/).
 To install, simply run:
 
 ```bash
-npm install @typebot.io/js
+npm install @trigidigital/js
 ```
 
 ### Directly in your HTML
 
 ```
 <script type="module">
-  import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
+  import TrigiDigital from 'https://cdn.jsdelivr.net/npm/@trigidigital/js@0/dist/web.js'
 
-  Typebot.initStandard({
-    typebot: 'my-typebot',
+  TrigiDigital.initStandard({
+    typebot: 'my-widget',
   })
 </script>
 
-<typebot-standard style="width: 100%; height: 600px; "></typebot-standard>
+<trigidigital-standard style="width: 100%; height: 600px; "></trigidigital-standard>
 ```
 
 ## Standard
@@ -34,14 +34,14 @@ There, you can change the container dimensions. Here is a code example:
 
 ```html
 <script type="module">
-  import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js";
+  import TrigiDigital from "https://cdn.jsdelivr.net/npm/@trigidigital/js@0/dist/web.js";
 
-  Typebot.initStandard({
-    typebot: "my-typebot",
+  TrigiDigital.initStandard({
+    typebot: "my-widget",
   });
 </script>
 
-<typebot-standard style="width: 100%; height: 600px; "></typebot-standard>
+<trigidigital-standard style="width: 100%; height: 600px; "></trigidigital-standard>
 ```
 
 This code is creating a container with a 100% width (will match parent width) and 600px height.
@@ -71,21 +71,21 @@ This code will automatically trigger the popup window after 3 seconds.
 You can use these commands:
 
 ```js
-Typebot.open();
+TrigiDigital.open();
 ```
 
 ```js
-Typebot.close();
+TrigiDigital.close();
 ```
 
 ```js
-Typebot.toggle();
+TrigiDigital.toggle();
 ```
 
 You can bind these commands on a button element, for example:
 
 ```html
-<button onclick="Typebot.open()">Contact us</button>
+<button onclick="TrigiDigital.open()">Contact us</button>
 ```
 
 ## Bubble
@@ -98,7 +98,7 @@ Here is an example:
 <script type="module">
   import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js";
 
-  Typebot.initBubble({
+  TrigiDigital.initBubble({
     typebot: "my-typebot",
     previewMessage: {
       message: "I have a question for you!",
@@ -121,11 +121,11 @@ This code will show the bubble and let a preview message appear after 5 seconds.
 You can use these commands:
 
 ```js
-Typebot.showPreviewMessage();
+TrigiDigital.showPreviewMessage();
 ```
 
 ```js
-Typebot.hidePreviewMessage();
+TrigiDigital.hidePreviewMessage();
 ```
 
 ### Open or close the typebot
@@ -133,21 +133,21 @@ Typebot.hidePreviewMessage();
 You can use these commands:
 
 ```js
-Typebot.open();
+TrigiDigital.open();
 ```
 
 ```js
-Typebot.close();
+TrigiDigital.close();
 ```
 
 ```js
-Typebot.toggle();
+TrigiDigital.toggle();
 ```
 
 You can bind these commands on a button element, for example:
 
 ```html
-<button onclick="Typebot.open()">Contact us</button>
+<button onclick="TrigiDigital.open()">Contact us</button>
 ```
 
 ## Additional configuration
@@ -155,7 +155,7 @@ You can bind these commands on a button element, for example:
 You can prefill the bot variable values in your embed code by adding the `prefilledVariables` option. Here is an example:
 
 ```js
-Typebot.initStandard({
+TrigiDigital.initStandard({
   typebot: "my-typebot",
   prefilledVariables: {
     "Current URL": "https://my-site/account",

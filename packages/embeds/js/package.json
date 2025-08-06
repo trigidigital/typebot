@@ -1,7 +1,7 @@
 {
-  "name": "@typebot.io/js",
+  "name": "@trigidigital/js",
   "version": "0.8.15",
-  "description": "Javascript library to display typebots on your website",
+  "description": "Javascript library to display trigidigital widgets on your website",
   "license": "FSL-1.1-ALv2",
   "type": "module",
   "main": "./dist/index.js",
