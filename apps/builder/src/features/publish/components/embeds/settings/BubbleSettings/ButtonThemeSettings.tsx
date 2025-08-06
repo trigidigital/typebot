@@ -17,7 +17,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import type { ButtonTheme } from "@typebot.io/js";
+import type { ButtonTheme } from "@trigidigital/js";
 
 import React from "react";
 

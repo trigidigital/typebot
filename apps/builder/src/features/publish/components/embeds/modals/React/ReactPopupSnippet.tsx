@@ -1,6 +1,6 @@
 import { CodeEditor } from "@/components/inputs/CodeEditor";
 import { useTypebot } from "@/features/editor/providers/TypebotProvider";
-import type { PopupProps } from "@typebot.io/js";
+import type { PopupProps } from "@trigidigital/js";
 import parserBabel from "prettier/parser-babel";
 import prettier from "prettier/standalone";
 import { parseReactPopupProps } from "../../snippetParsers/popup";
@@ -11,7 +11,7 @@ export const ReactPopupSnippet = ({
   const { typebot } = useTypebot();
 
   const snippet = prettier.format(
-    `import { Popup } from "@typebot.io/react";
+    `import { Popup } from "@trigidigital/react";
 
       const App = () => {
         return <Popup ${parseReactPopupProps({

@@ -8,7 +8,7 @@
   "dependencies": {
     "@ladle/react": "5.0.1",
     "@typebot.io/conditions": "workspace:*",
-    "@typebot.io/react": "workspace:*",
+    "@trigidigital/react": "workspace:*",
     "@typebot.io/theme": "workspace:*",
     "@typebot.io/blocks-bubbles": "workspace:*",
     "@typebot.io/blocks-inputs": "workspace:*",

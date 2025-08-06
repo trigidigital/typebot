@@ -1,7 +1,7 @@
 import { TextLink } from "@/components/TextLink";
 import { useTypebot } from "@/features/editor/providers/TypebotProvider";
 import { Code, ListItem, OrderedList, Stack, Text } from "@chakra-ui/react";
-import type { BubbleProps } from "@typebot.io/js";
+import type { BubbleProps } from "@trigidigital/js";
 import { useState } from "react";
 import { BubbleSettings } from "../../../settings/BubbleSettings/BubbleSettings";
 import { JavascriptBubbleSnippet } from "../../Javascript/JavascriptBubbleSnippet";

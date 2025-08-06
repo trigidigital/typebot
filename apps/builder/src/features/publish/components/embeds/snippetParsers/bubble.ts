@@ -1,4 +1,4 @@
-import type { BubbleProps } from "@typebot.io/js";
+import type { BubbleProps } from "@trigidigital/js";
 import parserBabel from "prettier/parser-babel";
 import prettier from "prettier/standalone";
 import {

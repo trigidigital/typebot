@@ -1,6 +1,6 @@
 import { isCloudProdInstance } from "@/helpers/isCloudProdInstance";
 import { env } from "@typebot.io/env";
-import type { BotProps } from "@typebot.io/js";
+import type { BotProps } from "@trigidigital/js";
 import { isDefined } from "@typebot.io/lib/utils";
 import type { Typebot } from "@typebot.io/typebot/schemas/typebot";
 import parserBabel from "prettier/parser-babel";
@@ -58,7 +58,7 @@ export const parseReactBotProps = ({
   return `${typebotLine} ${apiHostLine} ${wsHostLine}`;
 };
 
-export const typebotImportCode = `import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@${packageJson.version.split(".")[0]}/dist/web.js'`;
+export const typebotImportCode = `import Typebot from 'https://cdn.jsdelivr.net/npm/@trigidigital/js@${packageJson.version.split(".")[0]}/dist/web.js'`;
 
 export const parseInlineScript = (script: string) =>
   prettier.format(

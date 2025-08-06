@@ -1,4 +1,4 @@
-import { Standard } from "@typebot.io/react";
+import { Standard } from "@trigidigital/react";
 import { leadGenerationTypebot } from "./assets/leadGenerationTypebot";
 
 export const Default = () => {

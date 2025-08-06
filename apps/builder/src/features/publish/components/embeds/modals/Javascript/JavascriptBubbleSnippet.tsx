@@ -1,6 +1,6 @@
 import { CodeEditor } from "@/components/inputs/CodeEditor";
 import { useTypebot } from "@/features/editor/providers/TypebotProvider";
-import type { BubbleProps } from "@typebot.io/js";
+import type { BubbleProps } from "@trigidigital/js";
 import parserHtml from "prettier/parser-html";
 import prettier from "prettier/standalone";
 import { parseInitBubbleCode } from "../../snippetParsers/bubble";

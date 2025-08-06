@@ -1,4 +1,4 @@
-import { Bubble, close } from "@typebot.io/react";
+import { Bubble, close } from "@trigidigital/react";
 import { useEffect, useState } from "react";
 
 type Props = {

@@ -3,7 +3,7 @@ import { useTypebot } from "@/features/editor/providers/TypebotProvider";
 import { useUser } from "@/features/user/hooks/useUser";
 import { useWorkspace } from "@/features/workspace/WorkspaceProvider";
 import { Plan } from "@typebot.io/prisma/enum";
-import { Bubble, type BubbleProps } from "@typebot.io/react";
+import { Bubble, type BubbleProps } from "@trigidigital/react";
 import { useEffect, useState } from "react";
 
 export const SupportBubble = (props: Omit<BubbleProps, "typebot">) => {

@@ -1,6 +1,6 @@
 import { ColorPicker } from "@/components/ColorPicker";
 import { HStack, Heading, Stack, Text } from "@chakra-ui/react";
-import type { PreviewMessageTheme } from "@typebot.io/js";
+import type { PreviewMessageTheme } from "@trigidigital/js";
 import {
   defaultPreviewMessageBackgroundColor,
   defaultPreviewMessageCloseButtonBackgroundColor,

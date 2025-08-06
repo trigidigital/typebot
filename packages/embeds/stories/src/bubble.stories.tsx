@@ -9,7 +9,7 @@ import {
   setPrefilledVariables,
   showPreviewMessage,
   toggle,
-} from "@typebot.io/react";
+} from "@trigidigital/react";
 import { useState } from "react";
 
 export const Default = () => {

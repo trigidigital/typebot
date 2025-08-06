@@ -1,6 +1,6 @@
 import { useTypebot } from "@/features/editor/providers/TypebotProvider";
 import { ListItem, OrderedList, Stack, Text } from "@chakra-ui/react";
-import type { BubbleProps } from "@typebot.io/js";
+import type { BubbleProps } from "@trigidigital/js";
 import { useState } from "react";
 import { BubbleSettings } from "../../../settings/BubbleSettings/BubbleSettings";
 import { parseDefaultBubbleTheme } from "../../Javascript/instructions/JavascriptBubbleInstructions";

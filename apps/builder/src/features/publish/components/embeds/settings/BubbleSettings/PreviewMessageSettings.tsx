@@ -7,7 +7,7 @@ import {
   Switch,
   Text,
 } from "@chakra-ui/react";
-import type { PreviewMessageParams } from "@typebot.io/js";
+import type { PreviewMessageParams } from "@trigidigital/js";
 import { isDefined } from "@typebot.io/lib/utils";
 import { useState } from "react";
 

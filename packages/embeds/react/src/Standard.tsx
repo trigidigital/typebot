@@ -1,4 +1,4 @@
-import type { BotProps } from "@typebot.io/js";
+import type { BotProps } from "@trigidigital/js";
 import type React from "react";
 import { useEffect, useRef } from "react";
 
@@ -10,7 +10,7 @@ type Props = BotProps & {
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "typebot-standard": React.DetailedHTMLProps<
+      "trigidigital-standard": React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & { class?: string };
@@ -31,5 +31,5 @@ export const Standard = ({ style, className, ...assignableProps }: Props) => {
     Object.assign(ref.current, rest, { typebot });
   }, [assignableProps]);
 
-  return <typebot-standard ref={ref} style={style} class={className} />;
+  return <trigidigital-standard ref={ref} style={style} class={className} />;
 };

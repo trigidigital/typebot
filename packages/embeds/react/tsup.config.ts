@@ -6,5 +6,5 @@ export default defineConfig((options) => ({
   format: "esm",
   platform: "browser",
   dts: true,
-  noExternal: options.watch ? undefined : ["@typebot.io/js"],
+  noExternal: options.watch ? undefined : ["@trigidigital/js"],
 }));

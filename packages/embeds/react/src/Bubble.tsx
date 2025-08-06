@@ -1,4 +1,4 @@
-import { type BubbleProps, resolveButtonSize } from "@typebot.io/js";
+import { type BubbleProps, resolveButtonSize } from "@trigidigital/js";
 import type React from "react";
 import { useEffect, useMemo, useRef } from "react";
 
@@ -11,7 +11,7 @@ type Props = BubbleProps & {
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "typebot-bubble": React.DetailedHTMLProps<
+      "trigidigital-bubble": React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       >;
@@ -31,7 +31,7 @@ export const Bubble = (props: Props) => {
   useEffect(() => {
     if (props.theme?.position === "static" && !ref.current) return;
     if (!ref.current) {
-      ref.current = document.createElement("typebot-bubble") as BubbleElement;
+      ref.current = document.createElement("trigidigital-bubble") as BubbleElement;
       document.body.prepend(ref.current);
     }
     const { typebot, ...rest } = props;
@@ -53,7 +53,7 @@ export const Bubble = (props: Props) => {
 
   if (props.theme?.position === "static")
     return (
-      <typebot-bubble
+      <trigidigital-bubble
         ref={ref}
         style={{
           display: "inline-flex",

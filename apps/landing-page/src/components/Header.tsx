@@ -12,7 +12,7 @@ import {
 import { useWindowSize } from "@/features/homepage/hooks/useWindowSize";
 import { useIsAuthenticated } from "@/hooks/useIsAuthenticated";
 import { Link, useLocation, useRouter } from "@tanstack/react-router";
-import { Bubble } from "@typebot.io/react";
+import { Bubble } from "@trigidigital/react";
 import { buttonVariants } from "@typebot.io/ui/components/Button";
 import { CloseIcon } from "@typebot.io/ui/icons/CloseIcon";
 import { MenuIcon } from "@typebot.io/ui/icons/MenuIcon";

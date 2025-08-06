@@ -7,7 +7,7 @@ import {
   Switch,
   Text,
 } from "@chakra-ui/react";
-import type { PopupProps } from "@typebot.io/js";
+import type { PopupProps } from "@trigidigital/js";
 import { isDefined } from "@typebot.io/lib/utils";
 import { useEffect, useState } from "react";
 

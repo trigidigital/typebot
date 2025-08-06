@@ -16,7 +16,7 @@
     "@typebot.io/billing": "workspace:*",
     "@typebot.io/lib": "workspace:*",
     "@typebot.io/prisma": "workspace:*",
-    "@typebot.io/react": "workspace:*",
+    "@trigidigital/react": "workspace:*",
     "@typebot.io/telemetry": "workspace:*",
     "@typebot.io/ui": "workspace:*",
     "@typebot.io/zod": "workspace:*",

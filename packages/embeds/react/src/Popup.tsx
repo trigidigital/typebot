@@ -1,4 +1,4 @@
-import type { PopupProps } from "@typebot.io/js";
+import type { PopupProps } from "@trigidigital/js";
 import type React from "react";
 import { useCallback, useEffect, useRef } from "react";
 
@@ -7,7 +7,7 @@ type Props = PopupProps;
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      "typebot-popup": React.DetailedHTMLProps<
+      "trigidigital-popup": React.DetailedHTMLProps<
         React.HTMLAttributes<HTMLElement>,
         HTMLElement
       > & { class?: string };
@@ -23,7 +23,7 @@ export const Popup = (props: Props) => {
 
   const attachPopupToContainer = useCallback((props: Props) => {
     const popupElement = document.createElement(
-      "typebot-popup",
+      "trigidigital-popup",
     ) as PopupElement;
     popupRef.current = popupElement;
     injectPropsToElement(popupRef.current, props);

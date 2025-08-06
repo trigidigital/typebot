@@ -14,12 +14,12 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import type { BubbleProps } from "@typebot.io/js";
+import type { BubbleProps } from "@trigidigital/js";
 import type {
   BubbleTheme,
   ButtonTheme,
   PreviewMessageTheme,
-} from "@typebot.io/js";
+} from "@trigidigital/js";
 import { ButtonThemeSettings } from "./ButtonThemeSettings";
 import { PreviewMessageThemeSettings } from "./PreviewMessageThemeSettings";
 

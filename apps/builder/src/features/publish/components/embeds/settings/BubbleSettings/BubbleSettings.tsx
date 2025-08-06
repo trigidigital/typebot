@@ -7,7 +7,7 @@ import {
   Text,
   chakra,
 } from "@chakra-ui/react";
-import type { BubbleProps } from "@typebot.io/js";
+import type { BubbleProps } from "@trigidigital/js";
 import { isLight } from "@typebot.io/lib/hexToRgb";
 import { isDefined, isSvgSrc } from "@typebot.io/lib/utils";
 import { PreviewMessageSettings } from "./PreviewMessageSettings";

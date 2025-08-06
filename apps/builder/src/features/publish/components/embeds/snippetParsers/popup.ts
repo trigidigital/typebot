@@ -1,4 +1,4 @@
-import type { PopupProps } from "@typebot.io/js";
+import type { PopupProps } from "@trigidigital/js";
 import parserBabel from "prettier/parser-babel";
 import prettier from "prettier/standalone";
 import {

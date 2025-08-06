@@ -16,7 +16,7 @@
     "@trpc/server": "11.3.1",
     "trpc-to-openapi": "2.3.1",
     "@typebot.io/bot-engine": "workspace:*",
-    "@typebot.io/react": "workspace:*",
+    "@trigidigital/react": "workspace:*",
     "@typebot.io/prisma": "workspace:*",
     "@typebot.io/groups": "workspace:*",
     "@typebot.io/blocks-core": "workspace:*",

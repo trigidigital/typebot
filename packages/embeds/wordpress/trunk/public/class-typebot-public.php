@@ -46,7 +46,7 @@ class Typebot_Public
     if (empty(get_option('init_snippet')) || $this->is_path_excluded(get_option('excluded_pages'))) return;
     $lib_version = ($version = get_option('lib_version')) ? $version : TYPEBOT_DEFAULT_LIB_VERSION;
     echo '<script type="module">
-    import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@'.$lib_version.'/dist/web.js";'.
+    import Typebot from "https://cdn.jsdelivr.net/npm/@trigidigital/js@'.$lib_version.'/dist/web.js";'.
       get_option('init_snippet').
       'Typebot.setPrefilledVariables({ ...typebotWpUser });
     </script>';
@@ -119,7 +119,7 @@ class Typebot_Public
           $lib_version = sanitize_text_field($lib_version);
       }
     }
-    $lib_url = esc_url_raw("https://cdn.jsdelivr.net/npm/@typebot.io/js@". $lib_version ."/dist/web.js");
+    $lib_url = esc_url_raw("https://cdn.jsdelivr.net/npm/@trigidigital/js@". $lib_version ."/dist/web.js");
     $width = '100%';
     $height = '500px';
     $api_host = 'https://typebot.co';
