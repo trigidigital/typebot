@@ -58,7 +58,7 @@ export const parseReactBotProps = ({
   return `${typebotLine} ${apiHostLine} ${wsHostLine}`;
 };
 
-export const typebotImportCode = `import Typebot from 'https://cdn.jsdelivr.net/npm/@trigidigital/js@${packageJson.version.split(".")[0]}/dist/web.js'`;
+export const typebotImportCode = `import TrigiDigital from 'https://cdn.jsdelivr.net/npm/@trigidigital/js@${packageJson.version.split(".")[0]}/dist/web.js'`;
 
 export const parseInlineScript = (script: string) =>
   prettier.format(

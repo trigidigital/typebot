@@ -112,7 +112,7 @@ export const parseInitBubbleCode = ({
   const botProps = parseBotProps({ typebot, customDomain });
   const bubbleProps = parseBubbleProps({ previewMessage, theme });
 
-  return prettier.format(`Typebot.initBubble({${botProps}${bubbleProps}});`, {
+  return prettier.format(`TrigiDigital.initBubble({${botProps}${bubbleProps}});`, {
     parser: "babel",
     plugins: [parserBabel],
   });

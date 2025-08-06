@@ -9,7 +9,7 @@ export const parseInitStandardCode = ({
 }: Pick<BotProps, "typebot"> & { customDomain: string | undefined | null }) => {
   const botProps = parseBotProps({ typebot, customDomain });
 
-  return prettier.format(`Typebot.initStandard({${botProps}});`, {
+  return prettier.format(`TrigiDigital.initStandard({${botProps}});`, {
     parser: "babel",
     plugins: [parserBabel],
   });

@@ -151,7 +151,7 @@ export const Popup = (props: PopupProps) => {
   return (
     <Show when={isBotOpened()}>
       <EnvironmentProvider
-        value={document.querySelector("typebot-popup")?.shadowRoot as Node}
+        value={document.querySelector("trigidigital-popup")?.shadowRoot as Node}
       >
         <style>
           {typebotColors}
