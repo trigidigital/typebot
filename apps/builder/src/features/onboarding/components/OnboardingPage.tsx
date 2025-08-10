@@ -3,8 +3,8 @@ import { useAcceptTermsMutation } from "@/features/user/hooks/useAcceptTermsMuta
 import { useUser } from "@/features/user/hooks/useUser";
 import { Button, Flex, HStack, VStack, chakra } from "@chakra-ui/react";
 import { useTranslate } from "@tolgee/react";
-import { env } from "@typebot.io/env";
 import { Standard } from "@trigidigital/react";
+import { env } from "@typebot.io/env";
 import confetti from "canvas-confetti";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";

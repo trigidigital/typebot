@@ -212,7 +212,10 @@ export const Bot = (props: BotProps & { class?: string }) => {
   });
 
   createEffect(() => {
-    if (isNotDefined(props.trigidigital) || typeof props.trigidigital === "string")
+    if (
+      isNotDefined(props.trigidigital) ||
+      typeof props.trigidigital === "string"
+    )
       return;
     setCustomCss(props.trigidigital.theme.customCss ?? "");
     if (
@@ -257,7 +260,8 @@ export const Bot = (props: BotProps & { class?: string }) => {
               apiHost: props.apiHost,
               wsHost: props.wsHost,
               isPreview:
-                typeof props.trigidigital !== "string" || (props.isPreview ?? false),
+                typeof props.trigidigital !== "string" ||
+                (props.isPreview ?? false),
               resultId: initialChatReply.resultId,
               sessionId: initialChatReply.sessionId,
               typebot: initialChatReply.typebot,

@@ -43,7 +43,8 @@ ${parseInitStandardCode({
   );
 
 export const parseStandardElementCode = (width?: string, height?: string) => {
-  if (!width && !height) return "<trigidigital-standard></trigidigital-standard>";
+  if (!width && !height)
+    return "<trigidigital-standard></trigidigital-standard>";
   return prettier.format(
     `<trigidigital-standard style="${width ? `width: ${width}; ` : ""}${
       height ? `height: ${height}; ` : ""

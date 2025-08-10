@@ -232,7 +232,9 @@ export const Bubble = (props: BubbleProps) => {
   return (
     <Show when={bubbleLifecycle() !== "unmounted"}>
       <EnvironmentProvider
-        value={document.querySelector("trigidigital-bubble")?.shadowRoot as Node}
+        value={
+          document.querySelector("trigidigital-bubble")?.shadowRoot as Node
+        }
       >
         <style>
           {typebotColors}

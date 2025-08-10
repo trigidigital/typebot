@@ -38,8 +38,8 @@ ${parseInitStandardCode({
         onUpdateWindowSettings={(settings) => setInputValues({ ...settings })}
       />
       <Text>
-        Make sure you have this <Code>trigidigital-standard</Code> element in your{" "}
-        <Code>{"<body>"}</Code>:
+        Make sure you have this <Code>trigidigital-standard</Code> element in
+        your <Code>{"<body>"}</Code>:
       </Text>
       <CodeEditor isReadOnly value={standardElementSnippet} lang="html" />
       <Text>Then, run this script to initialize the typebot:</Text>

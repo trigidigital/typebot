@@ -1,6 +1,6 @@
 import { isCloudProdInstance } from "@/helpers/isCloudProdInstance";
-import { env } from "@typebot.io/env";
 import type { BotProps } from "@trigidigital/js";
+import { env } from "@typebot.io/env";
 import { isDefined } from "@typebot.io/lib/utils";
 import type { Typebot } from "@typebot.io/typebot/schemas/typebot";
 import parserBabel from "prettier/parser-babel";

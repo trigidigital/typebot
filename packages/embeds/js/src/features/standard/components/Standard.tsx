@@ -71,7 +71,9 @@ export const Standard = (props: BotProps, { element }: { element: any }) => {
 
   return (
     <EnvironmentProvider
-      value={document.querySelector("trigidigital-standard")?.shadowRoot as Node}
+      value={
+        document.querySelector("trigidigital-standard")?.shadowRoot as Node
+      }
     >
       <style>
         {typebotColors}
