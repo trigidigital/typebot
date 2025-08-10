@@ -26,9 +26,9 @@ export const Standard = ({ style, className, ...assignableProps }: Props) => {
   useEffect(() => {
     import("./web");
     if (!ref.current) return;
-    const { typebot, ...rest } = assignableProps;
-    // We assign typebot last to ensure initializeBot is triggered with all the initial values
-    Object.assign(ref.current, rest, { typebot });
+    const { trigidigital, ...rest } = assignableProps;
+    // We assign trigidigital last to ensure initializeBot is triggered with all the initial values
+    Object.assign(ref.current, rest, { trigidigital });
   }, [assignableProps]);
 
   return <trigidigital-standard ref={ref} style={style} class={className} />;

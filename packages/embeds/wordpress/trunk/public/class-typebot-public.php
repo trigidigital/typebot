@@ -177,7 +177,7 @@ class Typebot_Public
     const urlParams = new URLSearchParams(window.location.search);
     const queryParams = Object.fromEntries(urlParams.entries());
     Typebot.initStandard({ apiHost: "' . esc_js($api_host) . '", wsHost: "' . esc_js($ws_host) . '", id: "' . esc_js($id) . '", typebot: "' . esc_js($typebot) . '", prefilledVariables: { ...window.typebotWpUser, ...queryParams } });</script>';
-    return  '<typebot-standard id="' . esc_attr($id) . '" style="width: ' . esc_attr($width) . '; height: ' . esc_attr($height) . ';"></typebot-standard>' . $bot_initializer;
+    return  '<trigidigital-standard id="' . esc_attr($id) . '" style="width: ' . esc_attr($width) . '; height: ' . esc_attr($height) . ';"></trigidigital-standard>' . $bot_initializer;
   }
 
   private function generateRandomString($length = 10)

@@ -34,9 +34,9 @@ export const Bubble = (props: Props) => {
       ref.current = document.createElement("trigidigital-bubble") as BubbleElement;
       document.body.prepend(ref.current);
     }
-    const { typebot, ...rest } = props;
-    // We assign typebot last to ensure initializeBubble is triggered with all the initial values
-    Object.assign(ref.current, rest, { typebot });
+    const { trigidigital, ...rest } = props;
+    // We assign trigidigital last to ensure initializeBubble is triggered with all the initial values
+    Object.assign(ref.current, rest, { trigidigital });
   }, [props]);
 
   useEffect(() => {

@@ -55,7 +55,7 @@ import { CloseIcon } from "./icons/CloseIcon";
 
 export type BotProps = {
   id?: string;
-  typebot: string | StartTypebot | undefined;
+  trigidigital: string | StartTypebot | undefined;
   isPreview?: boolean;
   resultId?: string;
   prefilledVariables?: Record<string, unknown>;
@@ -92,14 +92,14 @@ export const Bot = (props: BotProps & { class?: string }) => {
       prefilledVariables[key] = value;
     });
     const typebotIdFromProps =
-      typeof props.typebot === "string" ? props.typebot : undefined;
+      typeof props.trigidigital === "string" ? props.trigidigital : undefined;
     const isPreview =
-      typeof props.typebot !== "string" || (props.isPreview ?? false);
+      typeof props.trigidigital !== "string" || (props.isPreview ?? false);
     const resultIdInStorage =
       getExistingResultIdFromStorage(typebotIdFromProps);
     const { data, error } = await startChatQuery({
       stripeRedirectStatus: urlParams.get("redirect_status") ?? undefined,
-      typebot: props.typebot,
+      typebot: props.trigidigital,
       apiHost: props.apiHost,
       isPreview,
       resultId: isNotEmpty(props.resultId) ? props.resultId : resultIdInStorage,
@@ -207,16 +207,16 @@ export const Bot = (props: BotProps & { class?: string }) => {
   };
 
   createEffect(() => {
-    if (isNotDefined(props.typebot) || isInitialized()) return;
+    if (isNotDefined(props.trigidigital) || isInitialized()) return;
     initializeBot().then();
   });
 
   createEffect(() => {
-    if (isNotDefined(props.typebot) || typeof props.typebot === "string")
+    if (isNotDefined(props.trigidigital) || typeof props.trigidigital === "string")
       return;
-    setCustomCss(props.typebot.theme.customCss ?? "");
+    setCustomCss(props.trigidigital.theme.customCss ?? "");
     if (
-      props.typebot.theme.general?.progressBar?.isEnabled &&
+      props.trigidigital.theme.general?.progressBar?.isEnabled &&
       initialChatReply() &&
       !initialChatReply()?.typebot.theme.general?.progressBar?.isEnabled
     ) {
@@ -244,20 +244,20 @@ export const Bot = (props: BotProps & { class?: string }) => {
               typebot: {
                 ...initialChatReply.typebot,
                 settings:
-                  typeof props.typebot === "string" || !props.typebot
+                  typeof props.trigidigital === "string" || !props.trigidigital
                     ? initialChatReply.typebot.settings
-                    : props.typebot?.settings,
+                    : props.trigidigital?.settings,
                 theme:
-                  typeof props.typebot === "string" || !props.typebot
+                  typeof props.trigidigital === "string" || !props.trigidigital
                     ? initialChatReply.typebot.theme
-                    : props.typebot?.theme,
+                    : props.trigidigital?.theme,
               },
             }}
             context={{
               apiHost: props.apiHost,
               wsHost: props.wsHost,
               isPreview:
-                typeof props.typebot !== "string" || (props.isPreview ?? false),
+                typeof props.trigidigital !== "string" || (props.isPreview ?? false),
               resultId: initialChatReply.resultId,
               sessionId: initialChatReply.sessionId,
               typebot: initialChatReply.typebot,
@@ -265,7 +265,7 @@ export const Bot = (props: BotProps & { class?: string }) => {
                 initialChatReply.typebot.settings.general?.rememberUser
                   ?.isEnabled &&
                 !(
-                  typeof props.typebot !== "string" ||
+                  typeof props.trigidigital !== "string" ||
                   (props.isPreview ?? false)
                 )
                   ? (initialChatReply.typebot.settings.general?.rememberUser

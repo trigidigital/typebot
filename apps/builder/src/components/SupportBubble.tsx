@@ -6,7 +6,7 @@ import { Plan } from "@typebot.io/prisma/enum";
 import { Bubble, type BubbleProps } from "@trigidigital/react";
 import { useEffect, useState } from "react";
 
-export const SupportBubble = (props: Omit<BubbleProps, "typebot">) => {
+export const SupportBubble = (props: Omit<BubbleProps, "trigidigital">) => {
   const { typebot } = useTypebot();
   const { user } = useUser();
   const { workspace } = useWorkspace();
@@ -23,7 +23,7 @@ export const SupportBubble = (props: Omit<BubbleProps, "typebot">) => {
 
   return (
     <Bubble
-      typebot="typebot-support"
+      trigidigital="typebot-support"
       prefilledVariables={{
         "User ID": user?.id,
         "First name": user?.name?.split(" ")[0] ?? undefined,

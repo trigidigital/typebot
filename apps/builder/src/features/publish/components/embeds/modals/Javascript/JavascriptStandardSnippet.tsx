@@ -43,11 +43,11 @@ ${parseInitStandardCode({
   );
 
 export const parseStandardElementCode = (width?: string, height?: string) => {
-  if (!width && !height) return "<typebot-standard></typebot-standard>";
+  if (!width && !height) return "<trigidigital-standard></trigidigital-standard>";
   return prettier.format(
-    `<typebot-standard style="${width ? `width: ${width}; ` : ""}${
+    `<trigidigital-standard style="${width ? `width: ${width}; ` : ""}${
       height ? `height: ${height}; ` : ""
-    }"></typebot-standard>`,
+    }"></trigidigital-standard>`,
     { parser: "html", plugins: [parserHtml] },
   );
 };

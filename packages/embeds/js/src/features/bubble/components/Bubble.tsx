@@ -86,9 +86,9 @@ export const Bubble = (props: BubbleProps) => {
     window.removeEventListener("message", handlePostMessage);
   };
 
-  // Simulating onMount because botProps.typebot is not available at first render
+  // Simulating onMount because botProps.trigidigital is not available at first render
   createEffect(() => {
-    if (bubbleLifecycle() !== "idle" || !botProps.typebot) return;
+    if (bubbleLifecycle() !== "idle" || !botProps.trigidigital) return;
 
     setBubbleLifecycle("ready");
     attachEventListeners();

@@ -26,7 +26,7 @@ export const parseBotProps = ({
   typebot,
   customDomain,
 }: BotProps & { customDomain: string | undefined | null }) => {
-  const typebotLine = parseStringParam("typebot", typebot as string);
+  const typebotLine = parseStringParam("trigidigital", typebot as string);
   const apiHostLine = parseStringParam(
     "apiHost",
     parseApiHostValue(customDomain),
@@ -49,7 +49,7 @@ export const parseReactBotProps = ({
   typebot,
   customDomain,
 }: BotProps & { customDomain: string | undefined | null }) => {
-  const typebotLine = parseReactStringParam("typebot", typebot as string);
+  const typebotLine = parseReactStringParam("trigidigital", typebot as string);
   const apiHostLine = parseReactStringParam(
     "apiHost",
     parseApiHost(customDomain),

@@ -36,7 +36,7 @@ export const Default = () => {
           </button>
         </div>
         <Bubble
-          typebot="lead-generation-hdb7t54"
+          trigidigital="lead-generation-hdb7t54"
           apiHost="http://localhost:3001"
           wsHost="localhost:1999"
           prefilledVariables={{
