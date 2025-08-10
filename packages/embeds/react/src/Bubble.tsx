@@ -31,7 +31,9 @@ export const Bubble = (props: Props) => {
   useEffect(() => {
     if (props.theme?.position === "static" && !ref.current) return;
     if (!ref.current) {
-      ref.current = document.createElement("trigidigital-bubble") as BubbleElement;
+      ref.current = document.createElement(
+        "trigidigital-bubble",
+      ) as BubbleElement;
       document.body.prepend(ref.current);
     }
     const { trigidigital, ...rest } = props;
