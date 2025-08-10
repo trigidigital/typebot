@@ -16,7 +16,7 @@ export const ReactBubbleSnippet = ({
 
       const App = () => {
         return <Bubble ${parseReactBubbleProps({
-          typebot: typebot?.publicId ?? "",
+          trigidigital: typebot?.publicId ?? "",
           customDomain: typebot?.customDomain,
           theme,
           previewMessage,

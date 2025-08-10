@@ -148,12 +148,12 @@ const parseReactPreviewMessage = (
 };
 
 export const parseReactBubbleProps = ({
-  typebot,
+  trigidigital,
   customDomain,
   previewMessage,
   theme,
 }: BubbleProps & { customDomain: string | undefined | null }) => {
-  const botProps = parseReactBotProps({ typebot, customDomain });
+  const botProps = parseReactBotProps({ trigidigital, customDomain });
   const previewMessageProp = parseReactPreviewMessage(previewMessage);
   const themeProp = parseReactBubbleTheme(theme);
 

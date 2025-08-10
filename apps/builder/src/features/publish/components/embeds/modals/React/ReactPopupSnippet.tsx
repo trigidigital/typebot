@@ -15,7 +15,7 @@ export const ReactPopupSnippet = ({
 
       const App = () => {
         return <Popup ${parseReactPopupProps({
-          typebot: typebot?.publicId ?? "",
+          trigidigital: typebot?.publicId ?? "",
           customDomain: typebot?.customDomain,
           autoShowDelay,
         })}/>;

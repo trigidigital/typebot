@@ -16,7 +16,7 @@ export const ReactStandardSnippet = ({
 
       const App = () => {
         return <Standard ${parseReactBotProps({
-          typebot: typebot?.publicId ?? "",
+          trigidigital: typebot?.publicId ?? "",
           customDomain: typebot?.customDomain,
         })} style={{width: "${widthLabel}", height: "${heightLabel}"}} />
       }`,

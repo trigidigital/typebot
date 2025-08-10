@@ -14,7 +14,7 @@
   "scripts": {
     "postinstall": "turbo run db:generate",
     "prepare": "husky",
-    "pre-commit": "turbo run format-and-lint lint-repo check-broken-links test",
+    "pre-commit": "bun scripts/validate-consistency.ts && turbo run format-and-lint lint-repo check-broken-links typecheck test",
     "format-and-lint": "biome check .",
     "format-and-lint:fix": "biome check . --write",
     "lint-repo": "sherif -r unordered-dependencies -r packages-without-package-json --ignore-package @typebot.io/legacy --ignore-package bot-engine",
@@ -29,7 +29,8 @@
     "pull-locales": "dotenv -e .env -- tolgee pull && bun format-and-lint:fix",
     "push-locales": "dotenv -e .env -- tolgee push",
     "create-new-block": "cd packages/forge/cli && bun start",
-    "check-unused-dependencies": "bun packages/scripts/src/checkDependencies.ts"
+    "check-unused-dependencies": "bun packages/scripts/src/checkDependencies.ts",
+    "validate-consistency": "bun scripts/validate-consistency.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

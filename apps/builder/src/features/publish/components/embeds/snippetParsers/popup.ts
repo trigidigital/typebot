@@ -58,12 +58,12 @@ const parseReactThemeProp = (theme: PopupProps["theme"]): string => {
 };
 
 export const parseReactPopupProps = ({
-  typebot,
+  trigidigital,
   customDomain,
   theme,
   autoShowDelay,
 }: PopupProps & { customDomain: string | undefined | null }) => {
-  const botProps = parseReactBotProps({ typebot, customDomain });
+  const botProps = parseReactBotProps({ trigidigital, customDomain });
   const autoShowDelayProp = parseReactNumberOrBoolParam(
     "autoShowDelay",
     autoShowDelay,

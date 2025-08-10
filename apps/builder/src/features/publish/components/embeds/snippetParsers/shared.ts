@@ -46,10 +46,13 @@ export const parseReactNumberOrBoolParam = (
 ) => (isDefined(fieldValue) ? `${fieldName}={${fieldValue}}` : ``);
 
 export const parseReactBotProps = ({
-  typebot,
+  trigidigital,
   customDomain,
 }: BotProps & { customDomain: string | undefined | null }) => {
-  const typebotLine = parseReactStringParam("trigidigital", typebot as string);
+  const typebotLine = parseReactStringParam(
+    "trigidigital",
+    trigidigital as string,
+  );
   const apiHostLine = parseReactStringParam(
     "apiHost",
     parseApiHost(customDomain),
