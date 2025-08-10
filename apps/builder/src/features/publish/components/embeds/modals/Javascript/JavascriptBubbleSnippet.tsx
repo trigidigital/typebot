@@ -15,7 +15,7 @@ export const JavascriptBubbleSnippet = ({ theme, previewMessage }: Props) => {
     `<script type="module">${typebotImportCode}
 
 ${parseInitBubbleCode({
-  typebot: typebot?.publicId ?? "",
+  trigidigital: typebot?.publicId ?? "",
   customDomain: typebot?.customDomain,
   theme: {
     ...theme,

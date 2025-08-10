@@ -32,7 +32,7 @@ export const WordpressBubbleInstructions = ({ publicId }: Props) => {
     useState<BubbleProps["previewMessage"]>();
 
   const initCode = parseInitBubbleCode({
-    typebot: publicId,
+    trigidigital: publicId,
     customDomain: typebot?.customDomain,
     theme: {
       ...theme,

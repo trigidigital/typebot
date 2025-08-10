@@ -27,7 +27,7 @@ export const WordpressPopupInstructions = ({
   const [autoShowDelay, setAutoShowDelay] = useState<number>();
 
   const initCode = parseInitPopupCode({
-    typebot: publicId,
+    trigidigital: publicId,
     customDomain,
     autoShowDelay,
   });

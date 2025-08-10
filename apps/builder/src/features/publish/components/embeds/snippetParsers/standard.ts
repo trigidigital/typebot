@@ -4,10 +4,10 @@ import prettier from "prettier/standalone";
 import { parseBotProps } from "./shared";
 
 export const parseInitStandardCode = ({
-  typebot,
+  trigidigital,
   customDomain,
-}: Pick<BotProps, "typebot"> & { customDomain: string | undefined | null }) => {
-  const botProps = parseBotProps({ typebot, customDomain });
+}: Pick<BotProps, "trigidigital"> & { customDomain: string | undefined | null }) => {
+  const botProps = parseBotProps({ trigidigital, customDomain });
 
   return prettier.format(`TrigiDigital.initStandard({${botProps}});`, {
     parser: "babel",

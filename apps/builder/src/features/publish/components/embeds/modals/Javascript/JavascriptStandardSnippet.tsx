@@ -36,7 +36,7 @@ export const parseStandardHeadCode = (
     `<script type="module">${typebotImportCode};
 
 ${parseInitStandardCode({
-  typebot: publicId ?? "",
+  trigidigital: publicId ?? "",
   customDomain,
 })}</script>`,
     { parser: "html", plugins: [parserHtml] },

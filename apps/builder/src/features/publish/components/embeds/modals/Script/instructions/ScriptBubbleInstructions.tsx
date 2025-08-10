@@ -23,7 +23,7 @@ export const ScriptBubbleInstructions = () => {
     `${typebotImportCode}
 
 ${parseInitBubbleCode({
-  typebot: typebot?.publicId ?? "",
+  trigidigital: typebot?.publicId ?? "",
   customDomain: typebot?.customDomain,
   theme,
   previewMessage,

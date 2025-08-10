@@ -32,12 +32,12 @@ const parsePopupProps = ({
 };
 
 export const parseInitPopupCode = ({
-  typebot,
+  trigidigital,
   customDomain,
   theme,
   autoShowDelay,
 }: PopupProps & { customDomain: string | undefined | null }) => {
-  const botProps = parseBotProps({ typebot, customDomain });
+  const botProps = parseBotProps({ trigidigital, customDomain });
   const bubbleProps = parsePopupProps({ theme, autoShowDelay });
 
   return prettier.format(

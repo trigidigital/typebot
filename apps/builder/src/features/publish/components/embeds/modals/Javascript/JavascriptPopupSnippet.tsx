@@ -12,7 +12,7 @@ export const JavascriptPopupSnippet = ({ autoShowDelay }: Props) => {
   const { typebot } = useTypebot();
   const snippet = prettier.format(
     createSnippet({
-      typebot: typebot?.publicId ?? "",
+      trigidigital: typebot?.publicId ?? "",
       customDomain: typebot?.customDomain,
       autoShowDelay,
     }),

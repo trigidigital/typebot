@@ -28,7 +28,7 @@ export const ScriptStandardInstructions = () => {
   const scriptSnippet = parseInlineScript(`${typebotImportCode}
   
 ${parseInitStandardCode({
-  typebot: typebot?.publicId ?? "",
+  trigidigital: typebot?.publicId ?? "",
   customDomain: typebot?.customDomain,
 })}`);
 

@@ -17,7 +17,7 @@ export const ScriptPopupInstructions = () => {
     `${typebotImportCode}
 
 ${parseInitPopupCode({
-  typebot: typebot?.publicId ?? "",
+  trigidigital: typebot?.publicId ?? "",
   customDomain: typebot?.customDomain,
   autoShowDelay: inputValue,
 })}`,

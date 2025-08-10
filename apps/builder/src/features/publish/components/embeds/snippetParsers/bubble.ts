@@ -104,12 +104,12 @@ const parseBubbleProps = ({
 };
 
 export const parseInitBubbleCode = ({
-  typebot,
+  trigidigital,
   customDomain,
   previewMessage,
   theme,
 }: BubbleProps & { customDomain: string | undefined | null }) => {
-  const botProps = parseBotProps({ typebot, customDomain });
+  const botProps = parseBotProps({ trigidigital, customDomain });
   const bubbleProps = parseBubbleProps({ previewMessage, theme });
 
   return prettier.format(
