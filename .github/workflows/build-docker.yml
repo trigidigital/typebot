@@ -12,10 +12,12 @@ jobs:
   build:
     env:
       DATABASE_URL: "postgresql://"
+      NODE_OPTIONS: "--max-old-space-size=4096"
     strategy:
       matrix:
         app: ["builder", "viewer"]
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4

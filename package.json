@@ -30,6 +30,7 @@
     "push-locales": "dotenv -e .env -- tolgee push",
     "create-new-block": "cd packages/forge/cli && bun start",
     "check-unused-dependencies": "bun packages/scripts/src/checkDependencies.ts",
+    "check-broken-links": "cd apps/landing-page && bun check-broken-links",
     "validate-consistency": "bun scripts/validate-consistency.ts"
   },
   "devDependencies": {

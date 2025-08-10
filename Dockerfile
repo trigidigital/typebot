@@ -88,6 +88,7 @@ RUN bunx turbo@2.4.5-canary.7 prune "${SCOPE}" --docker
 FROM base AS builder
 ARG BUN_PKG_MANAGER
 ARG SCOPE
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 COPY --from=pruned /app/out/full/ .
 RUN SENTRYCLI_SKIP_DOWNLOAD=1 bun install
 RUN SKIP_ENV_CHECK=true bunx turbo build --filter="${SCOPE}"

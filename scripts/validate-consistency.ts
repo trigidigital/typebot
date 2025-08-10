@@ -34,6 +34,10 @@ const ERROR_CODES = {
   NAMING_WRONG_PARAMETER: "NAM002",
   IMPLEMENTATION_PARSE_ERROR: "IMP001",
   IMPLEMENTATION_MISMATCH: "IMP002",
+  SCRIPT_MISSING: "SCR001",
+  SCRIPT_INCONSISTENT: "SCR002",
+  RESOURCE_CONFIG_MISSING: "RES001",
+  RESOURCE_CONFIG_INVALID: "RES002",
 } as const;
 
 class ConsistencyValidator {
@@ -50,6 +54,12 @@ class ConsistencyValidator {
 
     // 3. Validate parseReact* function parameters
     await this.validateParseReactFunctions();
+
+    // 4. Validate script distribution across packages
+    await this.validateScriptDistribution();
+
+    // 5. Validate resource configuration
+    await this.validateResourceConfiguration();
 
     const success = this.errors.length === 0;
 
@@ -287,6 +297,157 @@ class ConsistencyValidator {
           message: `Failed to parse file: ${error instanceof Error ? error.message : "Unknown error"}`,
         });
       }
+    }
+  }
+
+  private async validateScriptDistribution(): Promise<void> {
+    console.log("📦 Validating script distribution...");
+
+    try {
+      // Read root package.json and turbo.json
+      const rootPackageJson = JSON.parse(readFileSync("package.json", "utf-8"));
+      const turboJson = JSON.parse(readFileSync("turbo.json", "utf-8"));
+
+      // Get turbo tasks that should have corresponding scripts
+      const turboTasks = Object.keys(turboJson.tasks || {});
+      const criticalScripts = [
+        "check-broken-links",
+        "typecheck",
+        "test",
+        "build",
+      ];
+
+      // Check if critical turbo tasks have fallback scripts in root
+      for (const task of criticalScripts) {
+        if (turboTasks.includes(task)) {
+          const hasRootScript =
+            rootPackageJson.scripts && rootPackageJson.scripts[task];
+
+          if (!hasRootScript && task === "check-broken-links") {
+            // We specifically need this script to delegate to landing-page
+            this.errors.push({
+              type: "implementation-mismatch",
+              file: "package.json",
+              message: `Missing root script for turbo task "${task}" - needed for CI/CD pipeline`,
+              severity: "error",
+              code: ERROR_CODES.SCRIPT_MISSING,
+            });
+          }
+        }
+      }
+
+      // Validate that turbo commands referenced in pre-commit hook exist
+      const preCommitScript = rootPackageJson.scripts?.["pre-commit"];
+      if (preCommitScript && typeof preCommitScript === "string") {
+        const turboCommands = preCommitScript.match(/turbo run ([^&]+)/g);
+        if (turboCommands) {
+          for (const command of turboCommands) {
+            const taskNames = command.replace("turbo run ", "").split(" ");
+            for (const taskName of taskNames) {
+              // Skip validation for root scripts that are not turbo tasks
+              const isRootScript =
+                rootPackageJson.scripts && rootPackageJson.scripts[taskName];
+              if (!turboTasks.includes(taskName) && !isRootScript) {
+                this.errors.push({
+                  type: "implementation-mismatch",
+                  file: "package.json",
+                  message: `Pre-commit script references undefined turbo task: "${taskName}"`,
+                  severity: "error",
+                  code: ERROR_CODES.SCRIPT_INCONSISTENT,
+                });
+              }
+            }
+          }
+        }
+      }
+    } catch (error) {
+      this.errors.push({
+        type: "implementation-mismatch",
+        file: "package.json/turbo.json",
+        message: `Failed to validate script distribution: ${error instanceof Error ? error.message : "Unknown error"}`,
+        severity: "error",
+        code: ERROR_CODES.IMPLEMENTATION_PARSE_ERROR,
+      });
+    }
+  }
+
+  private async validateResourceConfiguration(): Promise<void> {
+    console.log("⚙️  Validating resource configuration...");
+
+    // Validate GitHub Actions workflows
+    const workflowFiles = await glob(".github/workflows/*.yml", {
+      cwd: process.cwd(),
+    });
+
+    for (const file of workflowFiles) {
+      try {
+        const content = readFileSync(file, "utf-8");
+
+        // Check for proper timeout configuration
+        if (!content.includes("timeout-minutes:")) {
+          this.errors.push({
+            type: "implementation-mismatch",
+            file,
+            message:
+              "GitHub Actions workflow missing timeout-minutes configuration",
+            severity: "warning",
+            code: ERROR_CODES.RESOURCE_CONFIG_MISSING,
+          });
+        }
+
+        // Check for NODE_OPTIONS memory configuration
+        if (content.includes("turbo") || content.includes("typecheck")) {
+          if (
+            !content.includes("NODE_OPTIONS") ||
+            !content.includes("max-old-space-size")
+          ) {
+            this.errors.push({
+              type: "implementation-mismatch",
+              file,
+              message:
+                "GitHub Actions workflow with TypeScript compilation missing NODE_OPTIONS memory configuration",
+              severity: "error",
+              code: ERROR_CODES.RESOURCE_CONFIG_MISSING,
+            });
+          }
+        }
+
+        // Note: ubuntu-latest automatically provides 4-core runners for public repositories in 2025
+        // No validation needed for runner configuration as ubuntu-latest is optimal
+      } catch (error) {
+        this.errors.push({
+          type: "implementation-mismatch",
+          file,
+          message: `Failed to validate workflow configuration: ${error instanceof Error ? error.message : "Unknown error"}`,
+          severity: "error",
+          code: ERROR_CODES.IMPLEMENTATION_PARSE_ERROR,
+        });
+      }
+    }
+
+    // Validate Dockerfile memory configuration
+    try {
+      const dockerfilePath = "Dockerfile";
+      const dockerfileContent = readFileSync(dockerfilePath, "utf-8");
+
+      if (
+        !dockerfileContent.includes("NODE_OPTIONS") ||
+        !dockerfileContent.includes("max-old-space-size")
+      ) {
+        this.errors.push({
+          type: "implementation-mismatch",
+          file: dockerfilePath,
+          message:
+            "Dockerfile missing NODE_OPTIONS memory optimization for TypeScript compilation",
+          severity: "error",
+          code: ERROR_CODES.RESOURCE_CONFIG_MISSING,
+        });
+      }
+    } catch (error) {
+      // Dockerfile is optional for some projects
+      console.log(
+        "⚠️  Dockerfile not found or not readable - skipping Docker validation",
+      );
     }
   }
 

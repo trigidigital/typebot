@@ -316,7 +316,7 @@ const Desktop = React.forwardRef<
           )}
         >
           <Bubble
-            trigidigital="typebot-demo"
+            trigidigital={{ id: "typebot-demo" } as any}
             theme={{
               position: "static",
               chatWindow: {

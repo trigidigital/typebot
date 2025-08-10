@@ -13,7 +13,7 @@ export const CookieConsentBot = ({ isOpen, onSubmit, openDelay }: Props) => {
   return (
     <Bubble
       id="cookie-consent"
-      trigidigital="cookie-consent"
+      trigidigital={{ id: "cookie-consent" } as any}
       isOpen={isOpenDelayed}
       theme={{
         placement: "left",
