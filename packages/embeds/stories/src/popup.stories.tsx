@@ -7,7 +7,7 @@ export const Default = () => {
       <button onClick={open}>Open modal</button>
       <button onClick={toggle}>Toggle modal</button>
       <Popup
-        typebot={leadGenerationTypebot}
+        trigidigital={leadGenerationTypebot}
         apiHost="http://localhost:3001"
         autoShowDelay={3000}
         theme={{

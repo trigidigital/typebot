@@ -27,7 +27,7 @@ export const ThemePage = () => {
         >
           {typebot && (
             <Standard
-              typebot={typebot}
+              trigidigital={typebot}
               style={{
                 borderRadius: "0.75rem",
                 width: "100%",

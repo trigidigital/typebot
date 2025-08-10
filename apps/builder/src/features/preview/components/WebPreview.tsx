@@ -30,7 +30,7 @@ export const WebPreview = () => {
   return (
     <Standard
       key={`web-preview${startPreviewFrom?.id ?? ""}`}
-      typebot={typebot}
+      trigidigital={typebot}
       sessionId={user ? `${typebot.id}-${user.id}` : undefined}
       startFrom={
         startPreviewFrom?.type === "group"

@@ -12,7 +12,7 @@ export const Default = () => {
 
       <Popup
         id="popup"
-        typebot={"my-typebot-2b532x1"}
+        trigidigital={"my-typebot-2b532x1"}
         apiHost="http://localhost:3001"
         prefilledVariables={{
           Name: ["John"],
@@ -20,7 +20,7 @@ export const Default = () => {
       />
       <Bubble
         id="bubble"
-        typebot={"my-typebot-2b532x1"}
+        trigidigital={"my-typebot-2b532x1"}
         apiHost="http://localhost:3001"
       />
     </div>

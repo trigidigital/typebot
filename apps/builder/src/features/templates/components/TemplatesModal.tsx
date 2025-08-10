@@ -204,7 +204,7 @@ export const TemplatesModal = ({
             {typebot && (
               <Standard
                 key={typebot.id}
-                typebot={typebot}
+                trigidigital={typebot}
                 style={{
                   borderRadius: "0.25rem",
                   backgroundColor: "#fff",
