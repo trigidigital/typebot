@@ -1,14 +1,14 @@
 #!/usr/bin/env bun
 /**
  * Tests for Consistency Validation Script
- * 
+ *
  * Comprehensive test suite with unit tests and integration tests
  * for the consistency validation system.
  */
 
-import { readFileSync, writeFileSync, unlinkSync } from 'fs';
-import { join } from 'path';
-import { ConsistencyValidator } from './validate-consistency';
+import { readFileSync, unlinkSync, writeFileSync } from "fs";
+import { join } from "path";
+import { ConsistencyValidator } from "./validate-consistency";
 
 interface TestCase {
   name: string;
@@ -16,7 +16,10 @@ interface TestCase {
   setup: () => void;
   cleanup: () => void;
   expectedErrors: Array<{
-    type: 'interface-mismatch' | 'naming-inconsistency' | 'implementation-mismatch';
+    type:
+      | "interface-mismatch"
+      | "naming-inconsistency"
+      | "implementation-mismatch";
     file: string;
     messageContains: string;
   }>;
@@ -39,7 +42,7 @@ class ConsistencyValidatorTest {
    * Clean up all temporary files
    */
   private cleanupTempFiles(): void {
-    this.tempFiles.forEach(file => {
+    this.tempFiles.forEach((file) => {
       try {
         unlinkSync(file);
       } catch (error) {
@@ -53,34 +56,43 @@ class ConsistencyValidatorTest {
    * Run all test cases
    */
   async runTests(): Promise<boolean> {
-    console.log('🧪 Running consistency validation test suite...');
-    
+    console.log("🧪 Running consistency validation test suite...");
+
     const testCases: TestCase[] = [
       {
-        name: 'Interface Validation - Missing trigidigital property',
-        description: 'Should detect when BotProps interface is missing trigidigital property',
+        name: "Interface Validation - Missing trigidigital property",
+        description:
+          "Should detect when BotProps interface is missing trigidigital property",
         setup: () => {
-          this.createTempFile('packages/embeds/js/src/components/Bot.tsx', `
+          this.createTempFile(
+            "packages/embeds/js/src/components/Bot.tsx",
+            `
             export type BotProps = {
               id?: string;
               // Missing trigidigital property
               isPreview?: boolean;
             };
-          `);
+          `,
+          );
         },
         cleanup: () => this.cleanupTempFiles(),
-        expectedErrors: [{
-          type: 'interface-mismatch',
-          file: 'packages/embeds/js/src/components/Bot.tsx',
-          messageContains: 'trigidigital property not found'
-        }]
+        expectedErrors: [
+          {
+            type: "interface-mismatch",
+            file: "packages/embeds/js/src/components/Bot.tsx",
+            messageContains: "trigidigital property not found",
+          },
+        ],
       },
-      
+
       {
-        name: 'Naming Consistency - Mixed trigidigital/typebot in function',
-        description: 'Should detect mixed naming in parseReact function parameters',
+        name: "Naming Consistency - Mixed trigidigital/typebot in function",
+        description:
+          "Should detect mixed naming in parseReact function parameters",
         setup: () => {
-          this.createTempFile('apps/builder/src/features/publish/components/embeds/snippetParsers/test.ts', `
+          this.createTempFile(
+            "apps/builder/src/features/publish/components/embeds/snippetParsers/test.ts",
+            `
             export const parseReactTestProps = ({
               trigidigital,
               typebot,  // This should be flagged as inconsistent
@@ -88,15 +100,18 @@ class ConsistencyValidatorTest {
             }) => {
               return 'test';
             };
-          `);
+          `,
+          );
         },
         cleanup: () => this.cleanupTempFiles(),
-        expectedErrors: [{
-          type: 'naming-inconsistency',
-          file: 'apps/builder/src/features/publish/components/embeds/snippetParsers/test.ts',
-          messageContains: 'inconsistent naming in parameters'
-        }]
-      }
+        expectedErrors: [
+          {
+            type: "naming-inconsistency",
+            file: "apps/builder/src/features/publish/components/embeds/snippetParsers/test.ts",
+            messageContains: "inconsistent naming in parameters",
+          },
+        ],
+      },
     ];
 
     let allTestsPassed = true;
@@ -115,19 +130,24 @@ class ConsistencyValidatorTest {
 
         // Verify expected errors
         let testPassed = true;
-        
+
         for (const expectedError of testCase.expectedErrors) {
-          const matchingError = result.errors.find(error => 
-            error.type === expectedError.type &&
-            error.file.includes(expectedError.file) &&
-            error.message.includes(expectedError.messageContains)
+          const matchingError = result.errors.find(
+            (error) =>
+              error.type === expectedError.type &&
+              error.file.includes(expectedError.file) &&
+              error.message.includes(expectedError.messageContains),
           );
 
           if (!matchingError) {
-            console.log(`   ❌ Expected error not found: ${expectedError.messageContains}`);
+            console.log(
+              `   ❌ Expected error not found: ${expectedError.messageContains}`,
+            );
             testPassed = false;
           } else {
-            console.log(`   ✅ Found expected error: ${expectedError.messageContains}`);
+            console.log(
+              `   ✅ Found expected error: ${expectedError.messageContains}`,
+            );
           }
         }
 
@@ -140,9 +160,10 @@ class ConsistencyValidatorTest {
 
         // Cleanup
         testCase.cleanup();
-
       } catch (error) {
-        console.log(`   ❌ ${testCase.name} threw error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        console.log(
+          `   ❌ ${testCase.name} threw error: ${error instanceof Error ? error.message : "Unknown error"}`,
+        );
         allTestsPassed = false;
         testCase.cleanup();
       }
@@ -155,17 +176,21 @@ class ConsistencyValidatorTest {
    * Integration test that validates the current codebase
    */
   async runIntegrationTest(): Promise<boolean> {
-    console.log('\n🔄 Running integration test on current codebase...');
-    
+    console.log("\n🔄 Running integration test on current codebase...");
+
     const validator = new ConsistencyValidator();
     const result = await validator.validate();
-    
+
     if (result.success) {
-      console.log('✅ Integration test passed - current codebase validation works correctly');
+      console.log(
+        "✅ Integration test passed - current codebase validation works correctly",
+      );
       return true;
     } else {
-      console.log('❌ Integration test failed - current codebase has consistency issues');
-      result.errors.forEach(error => {
+      console.log(
+        "❌ Integration test failed - current codebase has consistency issues",
+      );
+      result.errors.forEach((error) => {
         console.log(`  - ${error.type}: ${error.file} - ${error.message}`);
       });
       return false;
@@ -176,21 +201,25 @@ class ConsistencyValidatorTest {
    * Performance test to ensure validation runs quickly
    */
   async runPerformanceTest(): Promise<boolean> {
-    console.log('\n⏱️  Running performance test...');
-    
+    console.log("\n⏱️  Running performance test...");
+
     const startTime = Date.now();
     const validator = new ConsistencyValidator();
     await validator.validate();
     const endTime = Date.now();
-    
+
     const duration = endTime - startTime;
     const TARGET_MAX_DURATION = 5000; // 5 seconds for safety margin under 30s requirement
-    
+
     if (duration < TARGET_MAX_DURATION) {
-      console.log(`✅ Performance test passed - validation completed in ${duration}ms (target: <${TARGET_MAX_DURATION}ms)`);
+      console.log(
+        `✅ Performance test passed - validation completed in ${duration}ms (target: <${TARGET_MAX_DURATION}ms)`,
+      );
       return true;
     } else {
-      console.log(`❌ Performance test failed - validation took ${duration}ms (target: <${TARGET_MAX_DURATION}ms)`);
+      console.log(
+        `❌ Performance test failed - validation took ${duration}ms (target: <${TARGET_MAX_DURATION}ms)`,
+      );
       return false;
     }
   }
@@ -199,33 +228,44 @@ class ConsistencyValidatorTest {
 // Main test execution
 async function main() {
   const tester = new ConsistencyValidatorTest();
-  
+
   try {
     const unitTestsPassed = await tester.runTests();
     const integrationTestPassed = await tester.runIntegrationTest();
     const performanceTestPassed = await tester.runPerformanceTest();
-    
-    const allTestsPassed = unitTestsPassed && integrationTestPassed && performanceTestPassed;
-    
-    console.log('\n📊 Test Summary:');
-    console.log(`   Unit Tests: ${unitTestsPassed ? '✅ PASSED' : '❌ FAILED'}`);
-    console.log(`   Integration Test: ${integrationTestPassed ? '✅ PASSED' : '❌ FAILED'}`);
-    console.log(`   Performance Test: ${performanceTestPassed ? '✅ PASSED' : '❌ FAILED'}`);
-    console.log(`   Overall: ${allTestsPassed ? '✅ ALL TESTS PASSED' : '❌ SOME TESTS FAILED'}`);
-    
+
+    const allTestsPassed =
+      unitTestsPassed && integrationTestPassed && performanceTestPassed;
+
+    console.log("\n📊 Test Summary:");
+    console.log(
+      `   Unit Tests: ${unitTestsPassed ? "✅ PASSED" : "❌ FAILED"}`,
+    );
+    console.log(
+      `   Integration Test: ${integrationTestPassed ? "✅ PASSED" : "❌ FAILED"}`,
+    );
+    console.log(
+      `   Performance Test: ${performanceTestPassed ? "✅ PASSED" : "❌ FAILED"}`,
+    );
+    console.log(
+      `   Overall: ${allTestsPassed ? "✅ ALL TESTS PASSED" : "❌ SOME TESTS FAILED"}`,
+    );
+
     return allTestsPassed;
   } catch (error) {
-    console.error('❌ Test suite execution failed:', error);
+    console.error("❌ Test suite execution failed:", error);
     return false;
   }
 }
 
 // Run if called directly
 if (require.main === module) {
-  main().then(success => {
-    process.exit(success ? 0 : 1);
-  }).catch(error => {
-    console.error('❌ Test execution failed:', error);
-    process.exit(1);
-  });
+  main()
+    .then((success) => {
+      process.exit(success ? 0 : 1);
+    })
+    .catch((error) => {
+      console.error("❌ Test execution failed:", error);
+      process.exit(1);
+    });
 }
